@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_poc/screens/home/ui/home_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_poc/routes/routes.dart';
+import 'package:flutter_poc/screens/home/bloc/home_bloc.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiBlocProvider(
+      providers: [BlocProvider<HomeBloc>(create: (context) => HomeBloc())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,6 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Home());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.home,
+      onGenerateRoute: AppRoutes.generateRoute,
+    );
   }
 }

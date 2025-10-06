@@ -8,6 +8,8 @@ final List<Grocery> groceries = [
     price: 120.0,
     imageUrl:
         "https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 2,
@@ -16,6 +18,8 @@ final List<Grocery> groceries = [
     price: 60.0,
     imageUrl:
         "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 3,
@@ -24,6 +28,8 @@ final List<Grocery> groceries = [
     price: 40.0,
     imageUrl:
         "https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 4,
@@ -31,6 +37,8 @@ final List<Grocery> groceries = [
     description: "High-quality potatoes for fries and curry",
     price: 30.0,
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Patates.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 5,
@@ -38,7 +46,9 @@ final List<Grocery> groceries = [
     description: "Strong and fresh onions for flavor",
     price: 50.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/7/73/Onion_on_White.JPG",
+        "https://toriavey.com/images/2013/05/All-About-Onions-on-TheShiksa.com-history-cooking-tutorial.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 6,
@@ -46,7 +56,9 @@ final List<Grocery> groceries = [
     description: "Pure cow milk - 1 liter pack",
     price: 55.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a4/Milk_glass.jpg",
+        "https://www.shutterstock.com/image-photo/pouring-fresh-milk-into-glass-260nw-2309221837.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 7,
@@ -54,7 +66,9 @@ final List<Grocery> groceries = [
     description: "Soft and fresh white bread loaf",
     price: 35.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/0/0f/Bread_Baguette.jpg",
+        "https://images.pexels.com/photos/209206/pexels-photo-209206.jpeg?cs=srgb&dl=pexels-pixabay-209206.jpg&fm=jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 8,
@@ -62,7 +76,9 @@ final List<Grocery> groceries = [
     description: "Farm fresh eggs - pack of 12",
     price: 70.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/7/7b/Eggs_in_carton.jpg",
+        "https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 9,
@@ -70,7 +86,9 @@ final List<Grocery> groceries = [
     description: "Premium quality basmati rice - 5kg bag",
     price: 450.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/6/65/Basmati_rice.jpg",
+        "https://static.vecteezy.com/system/resources/previews/001/899/049/non_2x/close-up-of-milled-rice-in-bowls-free-photo.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 10,
@@ -78,7 +96,9 @@ final List<Grocery> groceries = [
     description: "Refined sunflower oil - 1 liter",
     price: 150.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/5/57/Bottle_of_sunflower_oil.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/08/Sunflower_oil_and_sunflower.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 11,
@@ -86,7 +106,9 @@ final List<Grocery> groceries = [
     description: "Fresh dairy cheese block 200g",
     price: 90.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/6/6a/Cheddar_cheese.jpg",
+        "https://www.bbassets.com/media/uploads/p/l/40016246_2-milky-mist-cheese-block.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 12,
@@ -94,23 +116,27 @@ final List<Grocery> groceries = [
     description: "Salted creamy butter 500g",
     price: 180.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/6/6a/Butter_in_dish.jpg",
+        "https://m.media-amazon.com/images/I/61vr7r8qqsL._UF894,1000_QL80_.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 13,
     name: "Sugar",
     description: "Fine granulated sugar - 1kg pack",
     price: 50.0,
-    imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/0/0a/Sugar_2xmacro.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/81YONj6UcfL.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 14,
     name: "Salt",
     description: "Iodized cooking salt - 1kg pack",
     price: 20.0,
-    imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/6/6c/Salt_shaker_on_white_background.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/614mm2hYHyL.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 15,
@@ -118,7 +144,9 @@ final List<Grocery> groceries = [
     description: "Fresh chicken - 1kg",
     price: 250.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/3/33/Raw_chicken.jpg",
+        "https://m.media-amazon.com/images/I/51grj9ZZymL._UF894,1000_QL80_.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 16,
@@ -126,7 +154,9 @@ final List<Grocery> groceries = [
     description: "Fresh river fish - 1kg",
     price: 300.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/b/b4/Fish_market.jpg",
+        "https://5.imimg.com/data5/ANDROID/Default/2021/11/EF/BL/MC/84317545/screenshot-2021-11-08-22-15-09-81-jpg-500x500.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 17,
@@ -134,7 +164,9 @@ final List<Grocery> groceries = [
     description: "Fresh mutton cuts - 1kg",
     price: 650.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/8/8d/Mutton_cuts.jpg",
+        "https://5.imimg.com/data5/NF/ZI/JS/SELLER-46434935/mutton-500x500.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 18,
@@ -142,7 +174,9 @@ final List<Grocery> groceries = [
     description: "Citrus sweet oranges",
     price: 90.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg",
+        "https://m.media-amazon.com/images/I/41FBgfVMzQL._UF350,350_QL80_.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 19,
@@ -150,7 +184,9 @@ final List<Grocery> groceries = [
     description: "Fresh seedless green grapes",
     price: 120.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/1/18/Grapes_on_white.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Seedless_grapes_of_Kallidaikurichi.jpg/1280px-Seedless_grapes_of_Kallidaikurichi.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 20,
@@ -158,7 +194,9 @@ final List<Grocery> groceries = [
     description: "Juicy ripe mangoes",
     price: 150.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg",
+        "https://www.bbassets.com/media/uploads/p/l/40012511_5-fresho-kalaphad-mango.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 21,
@@ -166,7 +204,9 @@ final List<Grocery> groceries = [
     description: "Fresh strawberries - 250g pack",
     price: 200.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/2/29/PerfectStrawberry.jpg",
+        "https://www.bbassets.com/media/uploads/p/l/40099665_2-fresho-strawberry-premium-institutional.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 22,
@@ -174,7 +214,9 @@ final List<Grocery> groceries = [
     description: "Green leafy cabbage",
     price: 40.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cabbage_and_cross_section_on_white.jpg",
+        "https://www.bbassets.com/media/uploads/p/l/40084050_3-fresho-cabbage-kg-premium-institutional.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 23,
@@ -182,7 +224,9 @@ final List<Grocery> groceries = [
     description: "Fresh organic carrots",
     price: 60.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/4/4b/CarrotDaucusCarota.jpg",
+        "https://www.bbassets.com/media/uploads/p/xl/10000070_17-fresho-carrot-orange.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 24,
@@ -190,7 +234,9 @@ final List<Grocery> groceries = [
     description: "Leafy green spinach bundle",
     price: 30.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/0/03/Spinach_leaves.jpg",
+        "https://www.bbassets.com/media/uploads/p/l/30006608_7-fresho-spinach-malabar.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
   Grocery(
     productId: 25,
@@ -198,6 +244,8 @@ final List<Grocery> groceries = [
     description: "Fresh green peas - 500g",
     price: 80.0,
     imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/3/3e/Green_peas_in_pods_-_Studio.jpg",
+        "https://www.bbassets.com/media/uploads/p/l/50000517_7-fresho-green-peas-organically-grown.jpg",
+    isAddedToCart: false,
+    isAddedToWishlist: false,
   ),
 ];

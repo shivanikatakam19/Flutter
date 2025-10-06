@@ -4,6 +4,8 @@ class Grocery {
   final String description;
   final double price;
   final String imageUrl;
+  bool isAddedToCart;
+  bool isAddedToWishlist;
 
   Grocery({
     required this.productId,
@@ -11,5 +13,7 @@ class Grocery {
     required this.description,
     required this.price,
     required this.imageUrl,
+    required this.isAddedToCart,
+    required this.isAddedToWishlist,
   });
 }

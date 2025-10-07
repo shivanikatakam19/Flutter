@@ -34,6 +34,8 @@ class _HomeState extends State<Home> {
           Navigator.pushNamed(context, AppRoutes.wishlist);
         } else if (state is HomeNavigatetoCartPageActionState) {
           Navigator.pushNamed(context, AppRoutes.cart);
+        } else if (state is HomeNavigateToTodoPageActionState) {
+          Navigator.pushNamed(context, AppRoutes.todo);
         } else if (state is HomeProductItemWishlistedActionState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -75,6 +77,12 @@ class _HomeState extends State<Home> {
                     onPressed: () {
                       homeBloc.add(HomeCartButtonNavigateEvent());
                     },
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      homeBloc.add(HomeTodoButtonNavigateEvent());
+                    },
+                    icon: const Icon(Icons.assignment_outlined),
                   ),
                 ],
                 backgroundColor: Colors.teal,

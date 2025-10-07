@@ -45,5 +45,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeCartButtonNavigateEvent>((event, emit) {
       emit(HomeNavigatetoCartPageActionState());
     });
+
+    on<HomeTodoButtonNavigateEvent>((event, emit) {
+      emit(HomeNavigateToTodoPageActionState());
+    });
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_poc/screens/cart/ui/cart_ui.dart';
 import 'package:flutter_poc/screens/home/ui/home_ui.dart';
+import 'package:flutter_poc/screens/todos/ui/todo_ui.dart';
 import 'package:flutter_poc/screens/wishlist/ui/wishlist_ui.dart';
 
 class AppRoutes {
@@ -8,6 +9,7 @@ class AppRoutes {
   static const String home = '/';
   static const String wishlist = '/details';
   static const String cart = '/cart';
+  static const String todo = '/todo';
 
   // Generate routes here
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -20,6 +22,8 @@ class AppRoutes {
 
       case cart:
         return MaterialPageRoute(builder: (_) => const Cart());
+      case todo:
+        return MaterialPageRoute(builder: (_) => const Todo());
 
       default:
         return MaterialPageRoute(

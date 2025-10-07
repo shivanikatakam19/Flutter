@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_poc/models/grocery.dart';
-import 'package:flutter_poc/screens/cart/bloc/cart_bloc.dart';
-import 'package:flutter_poc/screens/home/bloc/home_bloc.dart';
-import 'package:flutter_poc/screens/wishlist/bloc/wishlist_bloc.dart';
+import 'package:flutter_poc/blocs/cart/cart_bloc.dart';
+import 'package:flutter_poc/blocs/home/home_bloc.dart';
+import 'package:flutter_poc/blocs/wishlist/wishlist_bloc.dart';
 
 class ProductTile extends StatelessWidget {
   final HomeBloc homeBloc;

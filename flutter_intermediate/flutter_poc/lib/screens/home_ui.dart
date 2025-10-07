@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_poc/routes/routes.dart';
-import 'package:flutter_poc/screens/home/bloc/home_bloc.dart';
+import 'package:flutter_poc/blocs/home/home_bloc.dart';
 import 'package:flutter_poc/widgets/product_tile.dart';
 
 class Home extends StatefulWidget {

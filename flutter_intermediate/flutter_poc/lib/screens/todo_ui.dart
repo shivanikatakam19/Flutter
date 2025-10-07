@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_poc/screens/todos/bloc/todo_bloc.dart';
+import 'package:flutter_poc/blocs/todos/todo_bloc.dart';
 
 class Todo extends StatefulWidget {
   const Todo({super.key});

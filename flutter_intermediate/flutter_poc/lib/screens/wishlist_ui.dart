@@ -2,22 +2,22 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_poc/screens/cart/bloc/cart_bloc.dart';
-import 'package:flutter_poc/screens/home/bloc/home_bloc.dart';
+import 'package:flutter_poc/blocs/home/home_bloc.dart';
+import 'package:flutter_poc/blocs/wishlist/wishlist_bloc.dart';
 import 'package:flutter_poc/widgets/product_tile.dart';
 
-class Cart extends StatefulWidget {
-  const Cart({super.key});
+class Wishlist extends StatefulWidget {
+  const Wishlist({super.key});
 
   @override
-  State<Cart> createState() => _CartState();
+  State<Wishlist> createState() => _WishlistState();
 }
 
-class _CartState extends State<Cart> {
-  final CartBloc cartBloc = CartBloc();
+class _WishlistState extends State<Wishlist> {
+  WishlistBloc wishlistBloc = WishlistBloc();
   @override
   void initState() {
-    cartBloc.add(CartInitialEvent());
+    wishlistBloc.add(WishlistInitialEvent());
     super.initState();
     // Implement some initialization operations here.
   }
@@ -26,26 +26,27 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Cart Page')),
-      body: BlocConsumer<CartBloc, CartState>(
-        bloc: cartBloc,
-        listenWhen: (previous, current) => current is CartActionState,
-        buildWhen: (previous, current) => current is! CartActionState,
+      body: BlocConsumer<WishlistBloc, WishlistState>(
+        bloc: wishlistBloc,
+        listenWhen: (previous, current) => current is WishlistActionState,
+        buildWhen: (previous, current) => current is! WishlistActionState,
         listener: (context, state) {},
         builder: (context, state) {
           switch (state.runtimeType) {
-            case CartLoadingState:
+            case WishlistLoadingState:
               return Scaffold(body: Center(child: CircularProgressIndicator()));
-            case CartLoadedSuccessState:
+            case WishlistLoadedSuccessState:
               return ListView.builder(
-                itemCount: (state as CartLoadedSuccessState).cartItems.length,
+                itemCount:
+                    (state as WishlistLoadedSuccessState).wishlistItems.length,
                 itemBuilder: (context, index) {
                   return ProductTile(
-                    grocery: (state).cartItems[index],
+                    grocery: (state).wishlistItems[index],
                     homeBloc: HomeBloc(),
                   );
                 },
               );
-            case CartErrorState():
+            case WishlistErrorState():
               return Center(child: Text("Some error occurred!"));
             default:
               return SizedBox.shrink();

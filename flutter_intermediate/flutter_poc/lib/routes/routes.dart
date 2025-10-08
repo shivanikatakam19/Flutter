@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_poc/screens/cart_ui.dart';
 import 'package:flutter_poc/screens/home_ui.dart';
-import 'package:flutter_poc/screens/login/ui/login_ui.dart';
+import 'package:flutter_poc/screens/login_ui.dart';
+import 'package:flutter_poc/screens/sign-up_ui.dart';
 import 'package:flutter_poc/screens/todo_ui.dart';
 import 'package:flutter_poc/screens/wishlist_ui.dart';
 
@@ -11,13 +12,17 @@ class AppRoutes {
   static const String wishlist = '/details';
   static const String cart = '/cart';
   static const String todo = '/todo';
-  static const String login = '/login';
+  static const String login = '/';
+  static const String signup = '/signup';
 
   // Generate routes here
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case login:
         return MaterialPageRoute(builder: (_) => const LoginForm());
+
+      case signup:
+        return MaterialPageRoute(builder: (_) => const SignUpForm());
 
       case home:
         return MaterialPageRoute(builder: (_) => const Home());

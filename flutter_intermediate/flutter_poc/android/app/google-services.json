@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "330753230821",
+    "project_id": "grocery-app-559ee",
+    "storage_bucket": "grocery-app-559ee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330753230821:android:30c7643af76a3025e9d10c",
+        "android_client_info": {
+          "package_name": "com.example.flutter_poc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt6UFwsM_3cr7PwidSOblmZkx9_0jq73E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330753230821:android:40db7e906fdfe828e9d10c",
+        "android_client_info": {
+          "package_name": "shopping.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt6UFwsM_3cr7PwidSOblmZkx9_0jq73E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

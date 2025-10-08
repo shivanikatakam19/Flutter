@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_poc/blocs/login/login_bloc.dart';
+import 'package:flutter_poc/blocs/bloc/sign_up_bloc.dart';
 import 'package:flutter_poc/routes/routes.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({super.key});
+class SignUpForm extends StatefulWidget {
+  const SignUpForm({super.key});
 
   @override
-  State<LoginForm> createState() => _LoginState();
+  State<SignUpForm> createState() => _SignUpFormState();
 }
 
-class _LoginState extends State<LoginForm> {
-  LoginBloc loginBloc = LoginBloc();
+class _SignUpFormState extends State<SignUpForm> {
+  SignUpBloc signUpBloc = SignUpBloc();
   final _formGlobalKey = GlobalKey<FormState>();
   String _useremail = '';
   String _password = '';
-
+  String _username = '';
   @override
   void initState() {
     super.initState();
@@ -23,42 +23,25 @@ class _LoginState extends State<LoginForm> {
   }
 
   @override
-  // Every widget must implement the build method
-  // build describes what the UI looks like for the current state.
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginBloc, LoginState>(
-      bloc: loginBloc,
+    return BlocConsumer<SignUpBloc, SignUpState>(
+      bloc: signUpBloc,
       listener: (context, state) {
-        if (state is LoginAuthenticatedState) {
-          _formGlobalKey.currentState?.reset();
+        if (state is SignUpAuthenticatedState) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text("Logged in successfully!"),
+              content: Text('Signed up successfully. Log in to continue.'),
               backgroundColor: Colors.green,
               duration: Duration(seconds: 2),
             ),
           );
-          Navigator.pushNamedAndRemoveUntil(
-            context,
-            AppRoutes.home,
-            (route) => false, // removes all previous routes
-          );
-        } else if (state is LoginUnauthenticatedState) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage),
-              backgroundColor: Colors.red,
-              duration: Duration(seconds: 5),
-            ),
-          );
-        } else if (state is NavigateToSignInPageActionState) {
-          Navigator.pushNamed(context, AppRoutes.signup);
+          Navigator.pushNamed(context, AppRoutes.login);
         }
       },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Login'),
+            title: Text('Sign Up'),
             centerTitle: true,
             backgroundColor: Colors.teal,
           ),
@@ -69,7 +52,23 @@ class _LoginState extends State<LoginForm> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
+                  SizedBox(height: 20),
+
                   // email
+                  TextFormField(
+                    decoration: InputDecoration(labelText: 'Username'),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Username is required';
+                      }
+
+                      return null;
+                    },
+                    onSaved: (newValue) => {_username = newValue!},
+                  ),
+
+                  SizedBox(height: 20),
+                  // password
                   TextFormField(
                     decoration: InputDecoration(labelText: 'Email'),
                     keyboardType: TextInputType.emailAddress,
@@ -113,14 +112,21 @@ class _LoginState extends State<LoginForm> {
                     onPressed: () {
                       if (_formGlobalKey.currentState!.validate()) {
                         _formGlobalKey.currentState!.save();
-                        loginBloc.add(
-                          SubmitButtonPressedEvent(
+                        Navigator.pop(context, {
+                          'email': _useremail,
+                          'password': _password,
+                          'username': _username,
+                        });
+                        signUpBloc.add(
+                          SignUpButtonPressedEvent(
                             userDetails: {
                               'email': _useremail,
                               'password': _password,
+                              'username': _username,
                             },
                           ),
                         );
+                        _formGlobalKey.currentState?.reset();
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -128,9 +134,8 @@ class _LoginState extends State<LoginForm> {
                       backgroundColor:
                           Colors.teal, // <-- Button background color
                     ),
-                    child: Text('Sign In'),
+                    child: Text('Sign Up'),
                   ),
-
                   SizedBox(height: 50),
 
                   // hyper-link
@@ -140,10 +145,10 @@ class _LoginState extends State<LoginForm> {
                       GestureDetector(
                         onTap: () {
                           // Navigate to another route
-                          loginBloc.add(NavigateToSignInPageEvent());
+                          signUpBloc.add(NavigateToLoginPageEvent());
                         },
                         child: const Text(
-                          "Don't have an account? Sign up",
+                          "Already have an account? Sign Up",
                           style: TextStyle(
                             color: Colors.blue,
                             decoration: TextDecoration

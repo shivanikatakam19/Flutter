@@ -7,7 +7,6 @@ class RootScreen extends StatelessWidget {
 
   Future<bool> isUserLoggedIn() async {
     final prefs = await SharedPreferences.getInstance();
-    print(prefs);
     return prefs.containsKey('uid'); // true if user details exist
   }
 

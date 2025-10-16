@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_poc/blocs/todos/todo_bloc.dart';
+import 'package:flutter_poc/widgets/app_layout.dart';
 
 class Todo extends StatefulWidget {
   const Todo({super.key});
@@ -22,17 +23,16 @@ class _TodoState extends State<Todo> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TodoBloc, TodoState>(
-      bloc: todoBloc,
-      listener: (context, state) {},
-      builder: (context, state) {
-        switch (state.runtimeType) {
-          case TodoLoadingState:
-            return Scaffold(body: Center(child: CircularProgressIndicator()));
-          case TodoLoadedSuccessState:
-            return Scaffold(
-              appBar: AppBar(title: Text('Todo Page with Dio')),
-              body: ListView.builder(
+    return AppLayout(
+      child: BlocConsumer<TodoBloc, TodoState>(
+        bloc: todoBloc,
+        listener: (context, state) {},
+        builder: (context, state) {
+          switch (state.runtimeType) {
+            case TodoLoadingState:
+              return Center(child: CircularProgressIndicator());
+            case TodoLoadedSuccessState:
+              return ListView.builder(
                 itemCount: (state as TodoLoadedSuccessState).todoItems.length,
                 itemBuilder: (context, index) {
                   return ListTile(
@@ -42,14 +42,14 @@ class _TodoState extends State<Todo> {
                         : Icon(Icons.close, color: Colors.red),
                   );
                 },
-              ),
-            );
-          case TodoErrorState:
-            return Center(child: Text('Error fetching todos!'));
-          default:
-            return SizedBox.shrink();
-        }
-      },
+              );
+            case TodoErrorState:
+              return Center(child: Text('Error fetching todos!'));
+            default:
+              return SizedBox.shrink();
+          }
+        },
+      ),
     );
   }
 }

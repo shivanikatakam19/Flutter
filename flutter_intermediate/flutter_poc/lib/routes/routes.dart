@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_poc/screens/cart_ui.dart';
 import 'package:flutter_poc/screens/home_ui.dart';
+import 'package:flutter_poc/screens/image_picker.dart';
+import 'package:flutter_poc/screens/location.dart';
 import 'package:flutter_poc/screens/login_ui.dart';
+import 'package:flutter_poc/screens/map_ui.dart';
+import 'package:flutter_poc/screens/platform-specific-code.dart';
 import 'package:flutter_poc/screens/sign-up_ui.dart';
 import 'package:flutter_poc/screens/todo_ui.dart';
 import 'package:flutter_poc/screens/wishlist_ui.dart';
@@ -14,6 +18,10 @@ class AppRoutes {
   static const String todo = '/todo';
   static const String login = '/';
   static const String signup = '/signup';
+  static const String camera = '/camera';
+  static const String location = '/location';
+  static const String map = '/maps';
+  static const String battery = '/battery';
 
   // Generate routes here
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -35,6 +43,18 @@ class AppRoutes {
 
       case todo:
         return MaterialPageRoute(builder: (_) => const Todo());
+
+      case camera:
+        return MaterialPageRoute(builder: (_) => const ImagePick());
+
+      case location:
+        return MaterialPageRoute(builder: (_) => const LocationUI());
+
+      case map:
+        return MaterialPageRoute(builder: (_) => const MapUi());
+
+      case battery:
+        return MaterialPageRoute(builder: (_) => const BatteryPercentage());
 
       default:
         return MaterialPageRoute(

@@ -34,7 +34,7 @@ class _CartState extends State<Cart> {
         builder: (context, state) {
           switch (state.runtimeType) {
             case CartLoadingState:
-              return Scaffold(body: Center(child: CircularProgressIndicator()));
+              return Center(child: CircularProgressIndicator());
             case CartLoadedSuccessState:
               return ListView.builder(
                 itemCount: (state as CartLoadedSuccessState).cartItems.length,

@@ -34,7 +34,7 @@ class _WishlistState extends State<Wishlist> {
         builder: (context, state) {
           switch (state.runtimeType) {
             case WishlistLoadingState:
-              return Scaffold(body: Center(child: CircularProgressIndicator()));
+              return Center(child: CircularProgressIndicator());
             case WishlistLoadedSuccessState:
               return ListView.builder(
                 itemCount:

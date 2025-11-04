@@ -16,7 +16,7 @@ class AppRoutes {
   static const String wishlist = '/details';
   static const String cart = '/cart';
   static const String todo = '/todo';
-  static const String login = '/';
+  static const String login = '/login';
   static const String signup = '/signup';
   static const String camera = '/camera';
   static const String location = '/location';

@@ -25,15 +25,24 @@ class RootScreen extends StatelessWidget {
           // User is logged in → navigate to Home
           // Using pushReplacement to avoid back button to RootScreen
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            Navigator.pushReplacementNamed(context, AppRoutes.home);
+            if (context.mounted) {
+              Navigator.pushReplacementNamed(context, AppRoutes.home);
+            }
           });
-          return const SizedBox(); // Empty widget while redirecting
+
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
         } else {
           // User not logged in → navigate to Login
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            Navigator.pushReplacementNamed(context, AppRoutes.login);
+            if (context.mounted) {
+              Navigator.pushReplacementNamed(context, AppRoutes.login);
+            }
           });
-          return const SizedBox();
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
         }
       },
     );

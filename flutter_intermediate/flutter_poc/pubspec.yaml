@@ -45,9 +45,9 @@ dependencies:
   geolocator: ^14.0.2
   fluttertoast: ^9.0.0
   google_maps_flutter: ^2.13.1
-  location: ^8.0.1
   flutter_polyline_points: ^3.1.0
   flutter_launcher_icons: ^0.14.4
+  local_auth: ^3.0.0
 
 flutter_launcher_icons:
   android: true

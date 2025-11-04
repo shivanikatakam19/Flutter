@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_poc/widgets/app_layout.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:location/location.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 
 class MapUi extends StatefulWidget {
@@ -20,7 +20,7 @@ class _MapUiState extends State<MapUi> {
   );
   LatLng? currentLocation;
   LatLng destinationLocation = LatLng(37.4243, -122.0848);
-  final Location locationController = Location();
+  final Geolocator locationController = Geolocator();
   final Completer<GoogleMapController> mapController =
       Completer<GoogleMapController>();
   Map<PolylineId, Polyline> polylines = {};
@@ -30,7 +30,9 @@ class _MapUiState extends State<MapUi> {
     super.initState();
     getLocation().then(
       (_) => {
-        getPolylinePoints().then((coordinates) => {print(coordinates)}),
+        getPolylinePoints().then(
+          (coordinates) => {generatePolylineFromPoints(coordinates)},
+        ),
       },
     );
   }
@@ -61,32 +63,30 @@ class _MapUiState extends State<MapUi> {
 
   Future<void> getLocation() async {
     bool serviceEnabled;
-    PermissionStatus permissionGranted;
+    LocationPermission permissionGranted;
 
-    serviceEnabled = await locationController.serviceEnabled();
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      serviceEnabled = await locationController.requestService();
+      serviceEnabled = await Geolocator.openLocationSettings();
       if (!serviceEnabled) return;
     }
 
-    permissionGranted = await locationController.hasPermission();
-    if (permissionGranted == PermissionStatus.denied) {
-      permissionGranted = await locationController.requestPermission();
-      if (permissionGranted != PermissionStatus.granted) return;
+    permissionGranted = await Geolocator.checkPermission();
+    if (permissionGranted == LocationPermission.denied) {
+      permissionGranted = await Geolocator.requestPermission();
+      if (permissionGranted != LocationPermission.always) return;
     }
 
-    final locData = await locationController.getLocation();
+    final locData = await Geolocator.getCurrentPosition();
     setState(() {
-      currentLocation = LatLng(locData.latitude!, locData.longitude!);
+      currentLocation = LatLng(locData.latitude, locData.longitude);
     });
 
-    locationController.onLocationChanged.listen((loc) {
-      if (loc.latitude != null && loc.longitude != null) {
-        setState(() {
-          currentLocation = LatLng(loc.latitude!, loc.longitude!);
-          cameraPosition(currentLocation!);
-        });
-      }
+    Geolocator.getPositionStream().listen((loc) {
+      setState(() {
+        currentLocation = LatLng(loc.latitude, loc.longitude);
+        cameraPosition(currentLocation!);
+      });
     });
   }
 

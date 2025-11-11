@@ -5,8 +5,8 @@ import 'package:flutter_poc/screens/image_picker.dart';
 import 'package:flutter_poc/screens/location.dart';
 import 'package:flutter_poc/screens/login_ui.dart';
 import 'package:flutter_poc/screens/map_ui.dart';
-import 'package:flutter_poc/screens/platform-specific-code.dart';
-import 'package:flutter_poc/screens/sign-up_ui.dart';
+import 'package:flutter_poc/screens/platform_specific_code.dart';
+import 'package:flutter_poc/screens/sign_up_ui.dart';
 import 'package:flutter_poc/screens/todo_ui.dart';
 import 'package:flutter_poc/screens/wishlist_ui.dart';
 

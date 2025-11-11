@@ -120,9 +120,7 @@ class _MapUiState extends State<MapUi> {
       for (var point in result.points) {
         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
       }
-    } else {
-      print(result.errorMessage);
-    }
+    } else {}
     return polylineCoordinates;
   }
 
